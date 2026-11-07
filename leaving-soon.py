@@ -3,7 +3,8 @@
 
 Spec: ~/docs/superpowers/specs/2026-10-22-leaving-soon-design.md
   - on the list: added 60+ days ago and never played by anyone; or, while the drive is over 85% full, the oldest
-    unwatched ones added 30+ days ago until leaving them would bring it back to 85%
+    unwatched ones added 30+ days ago until leaving them would bring it back to 85%; or a TV/anime season more than one
+    past the furthest season anyone has started (season 1 if nobody has) — rolling-seasons.py fetches them as you go
   - kept: favorited by anyone (jellyfin-sync's "favourite" tag, or a ♥ on the movie/show/season), played by anyone,
     tagged keep / keep-all, still downloading, or requested in Seerr in the last 60 days
   - leaves 7 days after listing: Radarr/Sonarr delete it (no re-download), then its torrents go too so space frees
@@ -27,6 +28,7 @@ MAX_DUE, MAX_DUE_BYTES, MIN_MATCHED = 30, 2e12, 0.9  # a run that looks wrong st
 RECYCLE = ["/media/.recycle"]    # Radarr's and Sonarr's recycle bins: a link there doesn't count as "still used"
 KEEP_TAGS = {"favourite", "keep", "keep-all"}
 COLLECTION = "Leaving Soon"
+BEYOND = "past where you are"
 
 
 def ts(iso):
@@ -40,14 +42,16 @@ def plan(items, listed, total, used, now):
     by = {x["key"]: x for x in items}
     ok = lambda x: not x["played"] and not x["favorite"] and not x["protected"]
     # stays listed: still unwatched and unloved, and not new again (a new episode or an upgrade counts as new)
-    keep = {k: v for k, v in listed.items() if k in by and ok(by[k]) and by[k]["added"] <= now - DISK_GRACE}
+    # a season listed for being ahead of where you are stays only while it still is; the rest need 30+ days
+    stays = lambda k, v: by[k].get("beyond") if v["why"] == BEYOND else by[k]["added"] <= now - DISK_GRACE
+    keep = {k: v for k, v in listed.items() if k in by and ok(by[k]) and stays(k, v)}
     sure = {k: v for k, v in keep.items() if v["why"] != "drive over 85%" or by[k]["added"] <= now - GRACE}
     if used - DISK_LIMIT * total - sum(by[k]["size"] for k in sure) <= 0:
         keep = sure  # the drive is fine again: what only the 85% rule listed comes off
     drop = [dict(key=k, **v) for k, v in listed.items() if k not in keep]
     due = [by[k] for k, v in keep.items() if v["leaves"] <= now]
-    add = [dict(x, leaves=now + WAIT, why="60 days unwatched") for x in items
-           if x["key"] not in keep and ok(x) and x["added"] <= now - GRACE]
+    add = [dict(x, leaves=now + WAIT, why=BEYOND if x.get("beyond") else "60 days unwatched") for x in items
+           if x["key"] not in keep and ok(x) and (x.get("beyond") or x["added"] <= now - GRACE)]
     leaving = sum(by[k]["size"] for k in keep) + sum(x["size"] for x in add)
     over = used - leaving - DISK_LIMIT * total
     budget = DISK_WEEK_BUDGET - sum(v.get("size", by[k]["size"]) for k, v in keep.items()
@@ -81,6 +85,11 @@ def finish(items, played_seasons):
         elif not x.get("jf"):
             x["protected"] = "not matched in Jellyfin"
     return items
+
+
+def furthest(tv, played_seasons):
+    """The furthest season anyone has started (1 if nobody has)."""
+    return max([n for t, n in played_seasons if t == tv and n > 0] or [1])
 
 
 class LooksWrong(Exception):
@@ -239,6 +248,7 @@ class Pantera:
                     "still downloading" if s["id"] in queued_series else \
                     "requested in Seerr" if (tv and tv in asked["tv"]) or (s.get("tmdbId") and s["tmdbId"] in asked["tv_tmdb"]) else None
                 out.append(dict(x, jf=jf_ids.get(("season", tv, n)), played=(tv, n) in played_s,
+                                beyond=n > furthest(tv, played_s) + 1,
                                 favorite=tv in fav_shows or (tv, n) in fav_s or "favourite" in tags, protected=prot))
         return finish(out, played_s)
 
