@@ -1,0 +1,4 @@
+# Hosts found rebroadcasting paid channels: never kept.
+tvsen6.aynaott.com
+streaming.onnethn.com
+frndly.keralive.workers.dev

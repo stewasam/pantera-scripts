@@ -1,0 +1,9 @@
+# Runtime output — never commit
+*.log
+*-state.json
+drive-state.json
+__pycache__/
+.vpn-guard/
+escalations/
+orphan-torrents-*.json
+*.bak*

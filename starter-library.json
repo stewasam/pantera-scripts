@@ -1,0 +1,2286 @@
+{
+ "movies": [
+  {
+   "title": "Die Hard",
+   "year": 1988,
+   "rank": 1,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Raiders of the Lost Ark",
+   "year": 1981,
+   "rank": 1,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Toy Story",
+   "year": 1995,
+   "rank": 1,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Groundhog Day",
+   "year": 1993,
+   "rank": 1,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "The Godfather",
+   "year": 1972,
+   "rank": 1,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "The Shawshank Redemption",
+   "year": 1994,
+   "rank": 1,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "The Lord of the Rings: The Fellowship of the Ring",
+   "year": 2001,
+   "rank": 1,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "The Shining",
+   "year": 1980,
+   "rank": 1,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Casablanca",
+   "year": 1942,
+   "rank": 1,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "2001: A Space Odyssey",
+   "year": 1968,
+   "rank": 1,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "The Silence of the Lambs",
+   "year": 1991,
+   "rank": 1,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Saving Private Ryan",
+   "year": 1998,
+   "rank": 1,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "The Good, the Bad and the Ugly",
+   "year": 1966,
+   "rank": 1,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Spirited Away",
+   "year": 2001,
+   "rank": 1,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Mad Max: Fury Road",
+   "year": 2015,
+   "rank": 2,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Indiana Jones and the Last Crusade",
+   "year": 1989,
+   "rank": 2,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Toy Story 3",
+   "year": 2010,
+   "rank": 2,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Airplane!",
+   "year": 1980,
+   "rank": 2,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "The Godfather Part II",
+   "year": 1974,
+   "rank": 2,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Schindler's List",
+   "year": 1993,
+   "rank": 2,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "The Lord of the Rings: The Two Towers",
+   "year": 2002,
+   "rank": 2,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "The Exorcist",
+   "year": 1973,
+   "rank": 2,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "When Harry Met Sally...",
+   "year": 1989,
+   "rank": 2,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Blade Runner",
+   "year": 1982,
+   "rank": 2,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Se7en",
+   "year": 1995,
+   "rank": 2,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Apocalypse Now",
+   "year": 1979,
+   "rank": 2,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "Once Upon a Time in the West",
+   "year": 1968,
+   "rank": 2,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Princess Mononoke",
+   "year": 1997,
+   "rank": 2,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "The Dark Knight",
+   "year": 2008,
+   "rank": 3,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Jurassic Park",
+   "year": 1993,
+   "rank": 3,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "The Lion King",
+   "year": 1994,
+   "rank": 3,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Monty Python and the Holy Grail",
+   "year": 1975,
+   "rank": 3,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Goodfellas",
+   "year": 1990,
+   "rank": 3,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Forrest Gump",
+   "year": 1994,
+   "rank": 3,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "The Lord of the Rings: The Return of the King",
+   "year": 2003,
+   "rank": 3,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "Halloween",
+   "year": 1978,
+   "rank": 3,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "The Notebook",
+   "year": 2004,
+   "rank": 3,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Blade Runner 2049",
+   "year": 2017,
+   "rank": 3,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Zodiac",
+   "year": 2007,
+   "rank": 3,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Full Metal Jacket",
+   "year": 1987,
+   "rank": 3,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "Unforgiven",
+   "year": 1992,
+   "rank": 3,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "My Neighbor Totoro",
+   "year": 1988,
+   "rank": 3,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Terminator 2: Judgment Day",
+   "year": 1991,
+   "rank": 4,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Back to the Future",
+   "year": 1985,
+   "rank": 4,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Finding Nemo",
+   "year": 2003,
+   "rank": 4,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "The Big Lebowski",
+   "year": 1998,
+   "rank": 4,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Pulp Fiction",
+   "year": 1994,
+   "rank": 4,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "12 Angry Men",
+   "year": 1957,
+   "rank": 4,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Harry Potter and the Sorcerer's Stone",
+   "year": 2001,
+   "rank": 4,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "The Thing",
+   "year": 1982,
+   "rank": 4,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Titanic",
+   "year": 1997,
+   "rank": 4,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Star Wars",
+   "year": 1977,
+   "rank": 4,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Gone Girl",
+   "year": 2014,
+   "rank": 4,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Platoon",
+   "year": 1986,
+   "rank": 4,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "Tombstone",
+   "year": 1993,
+   "rank": 4,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Howl's Moving Castle",
+   "year": 2004,
+   "rank": 4,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "The Matrix",
+   "year": 1999,
+   "rank": 5,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+   "year": 2003,
+   "rank": 5,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "WALL-E",
+   "year": 2008,
+   "rank": 5,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Superbad",
+   "year": 2007,
+   "rank": 5,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Heat",
+   "year": 1995,
+   "rank": 5,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "One Flew Over the Cuckoo's Nest",
+   "year": 1975,
+   "rank": 5,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Harry Potter and the Prisoner of Azkaban",
+   "year": 2004,
+   "rank": 5,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "Psycho",
+   "year": 1960,
+   "rank": 5,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Pride & Prejudice",
+   "year": 2005,
+   "rank": 5,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "The Empire Strikes Back",
+   "year": 1980,
+   "rank": 5,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Prisoners",
+   "year": 2013,
+   "rank": 5,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "1917",
+   "year": 2019,
+   "rank": 5,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "Django Unchained",
+   "year": 2012,
+   "rank": 5,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Grave of the Fireflies",
+   "year": 1988,
+   "rank": 5,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "John Wick",
+   "year": 2014,
+   "rank": 6,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Lawrence of Arabia",
+   "year": 1962,
+   "rank": 6,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Up",
+   "year": 2009,
+   "rank": 6,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Ferris Bueller's Day Off",
+   "year": 1986,
+   "rank": 6,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "The Departed",
+   "year": 2006,
+   "rank": 6,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Fight Club",
+   "year": 1999,
+   "rank": 6,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Harry Potter and the Deathly Hallows: Part 2",
+   "year": 2011,
+   "rank": 6,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "A Nightmare on Elm Street",
+   "year": 1984,
+   "rank": 6,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Before Sunrise",
+   "year": 1995,
+   "rank": 6,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Return of the Jedi",
+   "year": 1983,
+   "rank": 6,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Memento",
+   "year": 2000,
+   "rank": 6,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Dunkirk",
+   "year": 2017,
+   "rank": 6,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "The Searchers",
+   "year": 1956,
+   "rank": 6,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Akira",
+   "year": 1988,
+   "rank": 6,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Gladiator",
+   "year": 2000,
+   "rank": 7,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Jaws",
+   "year": 1975,
+   "rank": 7,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "The Incredibles",
+   "year": 2004,
+   "rank": 7,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Ghostbusters",
+   "year": 1984,
+   "rank": 7,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Scarface",
+   "year": 1983,
+   "rank": 7,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "The Green Mile",
+   "year": 1999,
+   "rank": 7,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Pan's Labyrinth",
+   "year": 2006,
+   "rank": 7,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "The Texas Chain Saw Massacre",
+   "year": 1974,
+   "rank": 7,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Eternal Sunshine of the Spotless Mind",
+   "year": 2004,
+   "rank": 7,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Inception",
+   "year": 2010,
+   "rank": 7,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "The Sixth Sense",
+   "year": 1999,
+   "rank": 7,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Black Hawk Down",
+   "year": 2001,
+   "rank": 7,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "Butch Cassidy and the Sundance Kid",
+   "year": 1969,
+   "rank": 7,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Ghost in the Shell",
+   "year": 1995,
+   "rank": 7,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Aliens",
+   "year": 1986,
+   "rank": 8,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "The Goonies",
+   "year": 1985,
+   "rank": 8,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Ratatouille",
+   "year": 2007,
+   "rank": 8,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Anchorman: The Legend of Ron Burgundy",
+   "year": 2004,
+   "rank": 8,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Casino",
+   "year": 1995,
+   "rank": 8,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Good Will Hunting",
+   "year": 1997,
+   "rank": 8,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "The Princess Bride",
+   "year": 1987,
+   "rank": 8,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "Get Out",
+   "year": 2017,
+   "rank": 8,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "La La Land",
+   "year": 2016,
+   "rank": 8,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Interstellar",
+   "year": 2014,
+   "rank": 8,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Rear Window",
+   "year": 1954,
+   "rank": 8,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "The Bridge on the River Kwai",
+   "year": 1957,
+   "rank": 8,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "True Grit",
+   "year": 2010,
+   "rank": 8,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Your Name",
+   "year": 2016,
+   "rank": 8,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Kill Bill: Vol. 1",
+   "year": 2003,
+   "rank": 9,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Cast Away",
+   "year": 2000,
+   "rank": 9,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Inside Out",
+   "year": 2015,
+   "rank": 9,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Dr. Strangelove",
+   "year": 1964,
+   "rank": 9,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "City of God",
+   "year": 2002,
+   "rank": 9,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "There Will Be Blood",
+   "year": 2007,
+   "rank": 9,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "The Wizard of Oz",
+   "year": 1939,
+   "rank": 9,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "Hereditary",
+   "year": 2018,
+   "rank": 9,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Pretty Woman",
+   "year": 1990,
+   "rank": 9,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "The Terminator",
+   "year": 1984,
+   "rank": 9,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Vertigo",
+   "year": 1958,
+   "rank": 9,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Das Boot",
+   "year": 1981,
+   "rank": 9,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "High Noon",
+   "year": 1952,
+   "rank": 9,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "A Silent Voice",
+   "year": 2016,
+   "rank": 9,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Lethal Weapon",
+   "year": 1987,
+   "rank": 10,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Life of Pi",
+   "year": 2012,
+   "rank": 10,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Coco",
+   "year": 2017,
+   "rank": 10,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Some Like It Hot",
+   "year": 1959,
+   "rank": 10,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Reservoir Dogs",
+   "year": 1992,
+   "rank": 10,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Whiplash",
+   "year": 2014,
+   "rank": 10,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Edward Scissorhands",
+   "year": 1990,
+   "rank": 10,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "The Conjuring",
+   "year": 2013,
+   "rank": 10,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Notting Hill",
+   "year": 1999,
+   "rank": 10,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "E.T. the Extra-Terrestrial",
+   "year": 1982,
+   "rank": 10,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "North by Northwest",
+   "year": 1959,
+   "rank": 10,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Hacksaw Ridge",
+   "year": 2016,
+   "rank": 10,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "The Magnificent Seven",
+   "year": 1960,
+   "rank": 10,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Perfect Blue",
+   "year": 1997,
+   "rank": 10,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Speed",
+   "year": 1994,
+   "rank": 11,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "The Revenant",
+   "year": 2015,
+   "rank": 11,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Spider-Man: Into the Spider-Verse",
+   "year": 2018,
+   "rank": 11,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "The Grand Budapest Hotel",
+   "year": 2014,
+   "rank": 11,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "The Usual Suspects",
+   "year": 1995,
+   "rank": 11,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Parasite",
+   "year": 2019,
+   "rank": 11,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "The Hobbit: An Unexpected Journey",
+   "year": 2012,
+   "rank": 11,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "Scream",
+   "year": 1996,
+   "rank": 11,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Sleepless in Seattle",
+   "year": 1993,
+   "rank": 11,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Arrival",
+   "year": 2016,
+   "rank": 11,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Shutter Island",
+   "year": 2010,
+   "rank": 11,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "The Thin Red Line",
+   "year": 1998,
+   "rank": 11,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "A Fistful of Dollars",
+   "year": 1964,
+   "rank": 11,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Castle in the Sky",
+   "year": 1986,
+   "rank": 11,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "The Raid",
+   "year": 2011,
+   "rank": 12,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Apocalypto",
+   "year": 2006,
+   "rank": 12,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Shrek",
+   "year": 2001,
+   "rank": 12,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Step Brothers",
+   "year": 2008,
+   "rank": 12,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "L.A. Confidential",
+   "year": 1997,
+   "rank": 12,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Citizen Kane",
+   "year": 1941,
+   "rank": 12,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Stardust",
+   "year": 2007,
+   "rank": 12,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "Rosemary's Baby",
+   "year": 1968,
+   "rank": 12,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Roman Holiday",
+   "year": 1953,
+   "rank": 12,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Dune",
+   "year": 2021,
+   "rank": 12,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "The Prestige",
+   "year": 2006,
+   "rank": 12,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Letters from Iwo Jima",
+   "year": 2006,
+   "rank": 12,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "For a Few Dollars More",
+   "year": 1965,
+   "rank": 12,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Nausicaa of the Valley of the Wind",
+   "year": 1984,
+   "rank": 12,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Mission: Impossible - Fallout",
+   "year": 2018,
+   "rank": 13,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "King Kong",
+   "year": 2005,
+   "rank": 13,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "How to Train Your Dragon",
+   "year": 2010,
+   "rank": 13,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Bridesmaids",
+   "year": 2011,
+   "rank": 13,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "No Country for Old Men",
+   "year": 2007,
+   "rank": 13,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "The Social Network",
+   "year": 2010,
+   "rank": 13,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "The NeverEnding Story",
+   "year": 1984,
+   "rank": 13,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "It",
+   "year": 2017,
+   "rank": 13,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Dirty Dancing",
+   "year": 1987,
+   "rank": 13,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Dune: Part Two",
+   "year": 2024,
+   "rank": 13,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Oldboy",
+   "year": 2003,
+   "rank": 13,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Inglourious Basterds",
+   "year": 2009,
+   "rank": 13,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "The Wild Bunch",
+   "year": 1969,
+   "rank": 13,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Kiki's Delivery Service",
+   "year": 1989,
+   "rank": 13,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Casino Royale",
+   "year": 2006,
+   "rank": 14,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "The Mummy",
+   "year": 1999,
+   "rank": 14,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Monsters, Inc.",
+   "year": 2001,
+   "rank": 14,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Hot Fuzz",
+   "year": 2007,
+   "rank": 14,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Fargo",
+   "year": 1996,
+   "rank": 14,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "A Beautiful Mind",
+   "year": 2001,
+   "rank": 14,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Willow",
+   "year": 1988,
+   "rank": 14,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "A Quiet Place",
+   "year": 2018,
+   "rank": 14,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Ghost",
+   "year": 1990,
+   "rank": 14,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "The Martian",
+   "year": 2015,
+   "rank": 14,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Knives Out",
+   "year": 2019,
+   "rank": 14,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "The Great Escape",
+   "year": 1963,
+   "rank": 14,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "Rio Bravo",
+   "year": 1959,
+   "rank": 14,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Weathering with You",
+   "year": 2019,
+   "rank": 14,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Top Gun: Maverick",
+   "year": 2022,
+   "rank": 15,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Master and Commander: The Far Side of the World",
+   "year": 2003,
+   "rank": 15,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Beauty and the Beast",
+   "year": 1991,
+   "rank": 15,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Shaun of the Dead",
+   "year": 2004,
+   "rank": 15,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Chinatown",
+   "year": 1974,
+   "rank": 15,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Dead Poets Society",
+   "year": 1989,
+   "rank": 15,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Big Fish",
+   "year": 2003,
+   "rank": 15,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "28 Days Later",
+   "year": 2002,
+   "rank": 15,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "10 Things I Hate About You",
+   "year": 1999,
+   "rank": 15,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Ex Machina",
+   "year": 2014,
+   "rank": 15,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Nightcrawler",
+   "year": 2014,
+   "rank": 15,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Paths of Glory",
+   "year": 1957,
+   "rank": 15,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "The Outlaw Josey Wales",
+   "year": 1976,
+   "rank": 15,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Paprika",
+   "year": 2006,
+   "rank": 15,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Predator",
+   "year": 1987,
+   "rank": 16,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Stand by Me",
+   "year": 1986,
+   "rank": 16,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Aladdin",
+   "year": 1992,
+   "rank": 16,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Office Space",
+   "year": 1999,
+   "rank": 16,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Once Upon a Time in America",
+   "year": 1984,
+   "rank": 16,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Rocky",
+   "year": 1976,
+   "rank": 16,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Labyrinth",
+   "year": 1986,
+   "rank": 16,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "Night of the Living Dead",
+   "year": 1968,
+   "rank": 16,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Crazy Rich Asians",
+   "year": 2018,
+   "rank": 16,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Children of Men",
+   "year": 2006,
+   "rank": 16,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Misery",
+   "year": 1990,
+   "rank": 16,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Braveheart",
+   "year": 1995,
+   "rank": 16,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "3:10 to Yuma",
+   "year": 2007,
+   "rank": 16,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Wolf Children",
+   "year": 2012,
+   "rank": 16,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "The Bourne Ultimatum",
+   "year": 2007,
+   "rank": 17,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Into the Wild",
+   "year": 2007,
+   "rank": 17,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "The Iron Giant",
+   "year": 1999,
+   "rank": 17,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Dumb and Dumber",
+   "year": 1994,
+   "rank": 17,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Taxi Driver",
+   "year": 1976,
+   "rank": 17,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Oppenheimer",
+   "year": 2023,
+   "rank": 17,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Conan the Barbarian",
+   "year": 1982,
+   "rank": 17,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "The Ring",
+   "year": 2002,
+   "rank": 17,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "About Time",
+   "year": 2013,
+   "rank": 17,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Minority Report",
+   "year": 2002,
+   "rank": 17,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Sicario",
+   "year": 2015,
+   "rank": 17,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "Fury",
+   "year": 2014,
+   "rank": 17,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "Dances with Wolves",
+   "year": 1990,
+   "rank": 17,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "The Girl Who Leapt Through Time",
+   "year": 2006,
+   "rank": 17,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "RoboCop",
+   "year": 1987,
+   "rank": 18,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "The Treasure of the Sierra Madre",
+   "year": 1948,
+   "rank": 18,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Zootopia",
+   "year": 2016,
+   "rank": 18,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Planes, Trains and Automobiles",
+   "year": 1987,
+   "rank": 18,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "The Untouchables",
+   "year": 1987,
+   "rank": 18,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Raging Bull",
+   "year": 1980,
+   "rank": 18,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+   "year": 2005,
+   "rank": 18,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "Evil Dead II",
+   "year": 1987,
+   "rank": 18,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Amelie",
+   "year": 2001,
+   "rank": 18,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "District 9",
+   "year": 2009,
+   "rank": 18,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "The Girl with the Dragon Tattoo",
+   "year": 2011,
+   "rank": 18,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "The Pianist",
+   "year": 2002,
+   "rank": 18,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "The Hateful Eight",
+   "year": 2015,
+   "rank": 18,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Demon Slayer: Mugen Train",
+   "year": 2020,
+   "rank": 18,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Leon: The Professional",
+   "year": 1994,
+   "rank": 19,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Romancing the Stone",
+   "year": 1984,
+   "rank": 19,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Kung Fu Panda",
+   "year": 2008,
+   "rank": 19,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "The Hangover",
+   "year": 2009,
+   "rank": 19,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Training Day",
+   "year": 2001,
+   "rank": 19,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "The Pursuit of Happyness",
+   "year": 2006,
+   "rank": 19,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "Beetlejuice",
+   "year": 1988,
+   "rank": 19,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "The Witch",
+   "year": 2015,
+   "rank": 19,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Silver Linings Playbook",
+   "year": 2012,
+   "rank": 19,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Close Encounters of the Third Kind",
+   "year": 1977,
+   "rank": 19,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Mystic River",
+   "year": 2003,
+   "rank": 19,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "The Hurt Locker",
+   "year": 2008,
+   "rank": 19,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "Shane",
+   "year": 1953,
+   "rank": 19,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "The Boy and the Heron",
+   "year": 2023,
+   "rank": 19,
+   "group": "Anime films",
+   "anime": true
+  },
+  {
+   "title": "Crouching Tiger, Hidden Dragon",
+   "year": 2000,
+   "rank": 20,
+   "group": "Action",
+   "anime": false
+  },
+  {
+   "title": "Jumanji",
+   "year": 1995,
+   "rank": 20,
+   "group": "Adventure",
+   "anime": false
+  },
+  {
+   "title": "Frozen",
+   "year": 2013,
+   "rank": 20,
+   "group": "Animation and family",
+   "anime": false
+  },
+  {
+   "title": "Tropic Thunder",
+   "year": 2008,
+   "rank": 20,
+   "group": "Comedy",
+   "anime": false
+  },
+  {
+   "title": "Snatch",
+   "year": 2000,
+   "rank": 20,
+   "group": "Crime",
+   "anime": false
+  },
+  {
+   "title": "Gran Torino",
+   "year": 2008,
+   "rank": 20,
+   "group": "Drama",
+   "anime": false
+  },
+  {
+   "title": "The Shape of Water",
+   "year": 2017,
+   "rank": 20,
+   "group": "Fantasy",
+   "anime": false
+  },
+  {
+   "title": "Poltergeist",
+   "year": 1982,
+   "rank": 20,
+   "group": "Horror",
+   "anime": false
+  },
+  {
+   "title": "Love Actually",
+   "year": 2003,
+   "rank": 20,
+   "group": "Romance",
+   "anime": false
+  },
+  {
+   "title": "Edge of Tomorrow",
+   "year": 2014,
+   "rank": 20,
+   "group": "Science fiction",
+   "anime": false
+  },
+  {
+   "title": "Cape Fear",
+   "year": 1991,
+   "rank": 20,
+   "group": "Thriller and mystery",
+   "anime": false
+  },
+  {
+   "title": "All Quiet on the Western Front",
+   "year": 2022,
+   "rank": 20,
+   "group": "War",
+   "anime": false
+  },
+  {
+   "title": "The Assassination of Jesse James by the Coward Robert Ford",
+   "year": 2007,
+   "rank": 20,
+   "group": "Western",
+   "anime": false
+  },
+  {
+   "title": "Suzume",
+   "year": 2022,
+   "rank": 20,
+   "group": "Anime films",
+   "anime": true
+  }
+ ],
+ "series": [
+  {
+   "title": "Breaking Bad",
+   "search": "Breaking Bad",
+   "year": 2008,
+   "rank": 1,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Fullmetal Alchemist: Brotherhood",
+   "search": "Fullmetal Alchemist: Brotherhood",
+   "year": 2009,
+   "rank": 1,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "The Sopranos",
+   "search": "The Sopranos",
+   "year": 1999,
+   "rank": 2,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Attack on Titan",
+   "search": "Attack on Titan",
+   "year": 2013,
+   "rank": 2,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "The Wire",
+   "search": "The Wire",
+   "year": 2002,
+   "rank": 3,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Death Note",
+   "search": "Death Note",
+   "year": 2006,
+   "rank": 3,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Game of Thrones",
+   "search": "Game of Thrones",
+   "year": 2011,
+   "rank": 4,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Cowboy Bebop",
+   "search": "Cowboy Bebop",
+   "year": 1998,
+   "rank": 4,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Chernobyl",
+   "search": "Chernobyl",
+   "year": 2019,
+   "rank": 5,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Hunter x Hunter (2011)",
+   "search": "Hunter x Hunter",
+   "year": 2011,
+   "rank": 5,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Band of Brothers",
+   "search": "Band of Brothers",
+   "year": 2001,
+   "rank": 6,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Steins;Gate",
+   "search": "Steins;Gate",
+   "year": 2011,
+   "rank": 6,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Better Call Saul",
+   "search": "Better Call Saul",
+   "year": 2015,
+   "rank": 7,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Neon Genesis Evangelion",
+   "search": "Neon Genesis Evangelion",
+   "year": 1995,
+   "rank": 7,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "True Detective",
+   "search": "True Detective",
+   "year": 2014,
+   "rank": 8,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "One Punch Man",
+   "search": "One Punch Man",
+   "year": 2015,
+   "rank": 8,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Mad Men",
+   "search": "Mad Men",
+   "year": 2007,
+   "rank": 9,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Demon Slayer: Kimetsu no Yaiba",
+   "search": "Demon Slayer: Kimetsu no Yaiba",
+   "year": 2019,
+   "rank": 9,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "The Office (US)",
+   "search": "The Office US",
+   "year": 2005,
+   "rank": 10,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Jujutsu Kaisen",
+   "search": "Jujutsu Kaisen",
+   "year": 2020,
+   "rank": 10,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Seinfeld",
+   "search": "Seinfeld",
+   "year": 1989,
+   "rank": 11,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "My Hero Academia",
+   "search": "My Hero Academia",
+   "year": 2016,
+   "rank": 11,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Friends",
+   "search": "Friends",
+   "year": 1994,
+   "rank": 12,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Naruto",
+   "search": "Naruto",
+   "year": 2002,
+   "rank": 12,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Stranger Things",
+   "search": "Stranger Things",
+   "year": 2016,
+   "rank": 13,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Dragon Ball Z",
+   "search": "Dragon Ball Z",
+   "year": 1989,
+   "rank": 13,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Succession",
+   "search": "Succession",
+   "year": 2018,
+   "rank": 14,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "One Piece",
+   "search": "One Piece",
+   "year": 1999,
+   "rank": 14,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Fargo",
+   "search": "Fargo",
+   "year": 2014,
+   "rank": 15,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Code Geass",
+   "search": "Code Geass",
+   "year": 2006,
+   "rank": 15,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Lost",
+   "search": "Lost",
+   "year": 2004,
+   "rank": 16,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Vinland Saga",
+   "search": "Vinland Saga",
+   "year": 2019,
+   "rank": 16,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Sherlock",
+   "search": "Sherlock",
+   "year": 2010,
+   "rank": 17,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Mob Psycho 100",
+   "search": "Mob Psycho 100",
+   "year": 2016,
+   "rank": 17,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Peaky Blinders",
+   "search": "Peaky Blinders",
+   "year": 2013,
+   "rank": 18,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Frieren: Beyond Journey's End",
+   "search": "Frieren: Beyond Journey's End",
+   "year": 2023,
+   "rank": 18,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "Severance",
+   "search": "Severance",
+   "year": 2022,
+   "rank": 19,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Samurai Champloo",
+   "search": "Samurai Champloo",
+   "year": 2004,
+   "rank": 19,
+   "group": "Anime series",
+   "anime": true
+  },
+  {
+   "title": "The Last of Us",
+   "search": "The Last of Us",
+   "year": 2023,
+   "rank": 20,
+   "group": "TV",
+   "anime": false
+  },
+  {
+   "title": "Spy x Family",
+   "search": "Spy x Family",
+   "year": 2022,
+   "rank": 20,
+   "group": "Anime series",
+   "anime": true
+  }
+ ]
+}
