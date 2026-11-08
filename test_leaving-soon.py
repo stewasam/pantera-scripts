@@ -44,20 +44,20 @@ def test_gone_from_the_library_drops_off_the_list():
     assert [d["key"] for d in p["drop"]] == ["x"]
 
 
-def test_over_85_percent_lists_oldest_unwatched_30_days_or_more_until_back_to_85():
+def test_over_the_limit_lists_oldest_unwatched_30_days_or_more_until_back_under():
     items = [item("a40", 40, size=0.2 * TB), item("b50", 50, size=0.2 * TB), item("c35", 35, size=0.2 * TB), item("d20", 20, size=1 * TB)]
-    p = plan(items, used=0.88)  # 0.03 * 11 TB = 0.33 TB to free: the two oldest
-    assert keys(p["add"]) == ["a40", "b50"] and {x["why"] for x in p["add"]} == {"drive over 85%"}
+    p = plan(items, used=ls.DISK_LIMIT + 0.03)  # 0.03 * 11 TB = 0.33 TB to free: the two oldest
+    assert keys(p["add"]) == ["a40", "b50"] and {x["why"] for x in p["add"]} == {ls.DISK_WHY}
 
 
 def test_disk_rule_counts_whats_already_listed():
     listed = {"big": {"listed": NOW, "leaves": NOW + DAY, "why": "60 days unwatched"}}
-    p = plan([item("big", 70, size=0.5 * TB), item("a", 40, size=0.2 * TB)], listed, used=0.88)
-    assert p["add"] == []  # leaving "big" already brings it under 85%
+    p = plan([item("big", 70, size=0.5 * TB), item("a", 40, size=0.2 * TB)], listed, used=ls.DISK_LIMIT + 0.03)
+    assert p["add"] == []  # leaving "big" already brings it under the limit
 
 
-def test_under_85_percent_no_early_listing():
-    assert plan([item("a", 40)], used=0.84)["add"] == []
+def test_under_the_limit_no_early_listing():
+    assert plan([item("a", 40)], used=ls.DISK_LIMIT - 0.01)["add"] == []
 
 
 def test_already_listed_not_added_again():
@@ -65,46 +65,25 @@ def test_already_listed_not_added_again():
     assert plan([item("old", 90)], listed)["add"] == []
 
 
-def test_seasons_from_episode_files_and_watch_state():
+def test_a_show_is_one_item_dated_by_its_newest_episode():
     files = [{"seasonNumber": 1, "dateAdded": "2026-07-01T00:00:00Z", "size": 5, "id": 11},
              {"seasonNumber": 1, "dateAdded": "2026-09-01T00:00:00Z", "size": 6, "id": 12},
              {"seasonNumber": 2, "dateAdded": "2026-08-01T00:00:00Z", "size": 7, "id": 21}]
-    s = ls.seasons_of({"id": 3, "title": "Show", "tvdbId": 99, "tags": []}, files)
-    assert [(x["key"], x["size"], x["file_ids"]) for x in s] == [("season:3:1", 11, [11, 12]), ("season:3:2", 7, [21])]
-    assert s[0]["added"] == ls.ts("2026-09-01T00:00:00Z")  # the newest episode decides
+    x = ls.show_of({"id": 3, "title": "Show", "tvdbId": 99, "tags": []}, files)
+    assert (x["key"], x["kind"], x["title"], x["size"], x["file_ids"]) == ("show:3", "show", "Show", 18, [11, 12, 21])
+    assert x["added"] == ls.ts("2026-09-01T00:00:00Z")  # a new episode restarts the clock
+    assert ls.show_of({"id": 4, "title": "Empty"}, []) is None
 
 
-# --- rolling seasons: seasons past where you are ---
-def season(key, n, tv=1, days_ago=5, **kw):
-    return item(key, days_ago, kind="season", season=n, tvdb=tv, **kw)
+def test_a_show_follows_the_same_rules_as_a_movie():
+    show = lambda key, days, **kw: item(key, days, kind="show", **kw)
+    p = plan([show("old", 61), show("new", 20), show("seen", 90, played=True), show("loved", 90, favorite=True)])
+    assert keys(p["add"]) == ["old"] and p["add"][0]["why"] == "60 days unwatched"
 
 
-def test_furthest_is_season_1_when_nobody_started():
-    assert ls.furthest(1, set()) == 1
-    assert ls.furthest(1, {(1, 3), (1, 1), (2, 9), (1, 0)}) == 3
-
-
-def test_season_past_where_you_are_is_listed_at_once():
-    p = plan([season("s3", 3, beyond=True), season("s2", 2, beyond=False)])
-    assert [(x["key"], x["why"]) for x in p["add"]] == [("s3", ls.BEYOND)]
-
-
-def test_beyond_still_respects_favorite_played_protected():
-    p = plan([season("a", 4, beyond=True, favorite=True), season("b", 5, beyond=True, played=True),
-              season("c", 6, beyond=True, protected="tagged keep")])
-    assert p["add"] == []
-
-
-def test_beyond_comes_off_the_list_once_you_catch_up():
-    listed = {"s3": {"listed": NOW - DAY, "leaves": NOW + 6 * DAY, "why": ls.BEYOND, "title": "s3", "size": 1}}
-    p = plan([season("s3", 3, beyond=False)], listed)
-    assert [d["key"] for d in p["drop"]] == ["s3"] and p["due"] == []
-
-
-def test_beyond_leaves_after_the_week():
-    listed = {"s3": {"listed": NOW - 8 * DAY, "leaves": NOW - DAY, "why": ls.BEYOND, "title": "s3", "size": 1}}
-    p = plan([season("s3", 3, beyond=True)], listed)
-    assert [x["key"] for x in p["due"]] == ["s3"]
+def test_an_old_season_entry_drops_off():  # listed by the season rule before 11-08: its key no longer exists
+    p = plan([item("show:35", 24, kind="show")], {"season:35:3": {"listed": NOW - DAY, "leaves": NOW + 6 * DAY, "why": "past where you are", "title": "x", "size": 1}})
+    assert [d["key"] for d in p["drop"]] == ["season:35:3"] and p["add"] == []
 
 
 if __name__ == "__main__":

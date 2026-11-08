@@ -4,7 +4,7 @@
 For every show in Sonarr, the season you're on is the furthest one anyone has started in Jellyfin (season 1 if
 nobody has). Seasons up to it are left as they are; once half of it has been watched, the next season is monitored
 and searched; seasons further ahead are unmonitored so they don't download. Unwatched seasons already on disk past
-the next one are trimmed by leaving-soon.py (7-day list; favourites, played, keep tags and Seerr requests are kept).
+the next one stay (leaving-soon.py removes a show only whole, when nobody has played any of it).
 
 Skipped: unmonitored shows, shows tagged keep-all, and shows whose watched season numbers don't exist in Sonarr
 (anime is often numbered differently).

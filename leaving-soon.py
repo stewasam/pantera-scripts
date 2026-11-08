@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Leaving Soon: movies and TV/anime seasons nobody has played go on a "Leaving Soon" list for a week, then leave.
+"""Leaving Soon: movies and whole TV/anime shows nobody has played go on a "Leaving Soon" list for a week, then leave.
 
 Spec: ~/docs/superpowers/specs/2026-10-22-leaving-soon-design.md
-  - on the list: added 60+ days ago and never played by anyone; or, while the drive is over 85% full, the oldest
-    unwatched ones added 30+ days ago until leaving them would bring it back to 85%; or a TV/anime season more than one
-    past the furthest season anyone has started (season 1 if nobody has) — rolling-seasons.py fetches them as you go
-  - kept: favorited by anyone (jellyfin-sync's "favourite" tag, or a ♥ on the movie/show/season), played by anyone,
+  - on the list: added 60+ days ago and never played by anyone; or, while the drive is over 78% full, the oldest
+    unwatched ones added 30+ days ago until leaving them would bring it back to 78%. A show is one item: it goes
+    whole, never a season at a time (11-08, Sam: single seasons leaving looks wrong). rolling-seasons.py keeps new shows
+    at season 1 until someone is halfway through, so an unwatched show stays small without trimming.
+  - kept: favorited by anyone (jellyfin-sync's "favourite" tag, or a ♥ on the movie/show/season), played by anyone
+    (for a show: any episode),
     tagged keep / keep-all, still downloading, or requested in Seerr in the last 60 days
   - leaves 7 days after listing: Radarr/Sonarr delete it (no re-download), then its torrents go too so space frees
 Practice mode until scripts/leaving-soon.live exists: lists, collects and messages, deletes nothing.
@@ -22,13 +24,13 @@ LIVE = f"{STACK}/scripts/leaving-soon.live"
 DRIVE = "/mnt/storage"
 DAY = 86400
 GRACE, DISK_GRACE, WAIT, REQUESTED = 60 * DAY, 30 * DAY, 7 * DAY, 60 * DAY
-DISK_LIMIT = 0.85
-DISK_WEEK_BUDGET = 1e12          # the 85% rule lists at most 1 TB a week (it can't run away if deleting stopped freeing space)
+DISK_LIMIT = 0.78   # under the daily report's 80% warning, so space frees before it fires (11-08; was 85%)
+DISK_WHY = f"drive over {round(DISK_LIMIT * 100)}%"
+DISK_WEEK_BUDGET = 1e12          # the drive rule lists at most 1 TB a week (it can't run away if deleting stopped freeing space)
 MAX_DUE, MAX_DUE_BYTES, MIN_MATCHED = 30, 2e12, 0.9  # a run that looks wrong stops before deleting anything
 RECYCLE = ["/media/.recycle"]    # Radarr's and Sonarr's recycle bins: a link there doesn't count as "still used"
 KEEP_TAGS = {"favourite", "keep", "keep-all"}
 COLLECTION = "Leaving Soon"
-BEYOND = "past where you are"
 
 
 def ts(iso):
@@ -37,25 +39,24 @@ def ts(iso):
 
 # --- the rules (pure; see test_leaving_soon.py) ---
 def plan(items, listed, total, used, now):
-    """items: every movie/season with key, added, size, played, favorite, protected. listed: state of the list.
+    """items: every movie/show with key, added, size, played, favorite, protected. listed: state of the list.
     Returns add (new on the list, with leaves/why), drop (saved or gone), due (to delete now)."""
     by = {x["key"]: x for x in items}
     ok = lambda x: not x["played"] and not x["favorite"] and not x["protected"]
     # stays listed: still unwatched and unloved, and not new again (a new episode or an upgrade counts as new)
-    # a season listed for being ahead of where you are stays only while it still is; the rest need 30+ days
-    stays = lambda k, v: by[k].get("beyond") if v["why"] == BEYOND else by[k]["added"] <= now - DISK_GRACE
+    stays = lambda k, v: by[k]["added"] <= now - DISK_GRACE
     keep = {k: v for k, v in listed.items() if k in by and ok(by[k]) and stays(k, v)}
-    sure = {k: v for k, v in keep.items() if v["why"] != "drive over 85%" or by[k]["added"] <= now - GRACE}
+    sure = {k: v for k, v in keep.items() if not v["why"].startswith("drive over") or by[k]["added"] <= now - GRACE}
     if used - DISK_LIMIT * total - sum(by[k]["size"] for k in sure) <= 0:
-        keep = sure  # the drive is fine again: what only the 85% rule listed comes off
+        keep = sure  # the drive is fine again: what only the drive rule listed comes off
     drop = [dict(key=k, **v) for k, v in listed.items() if k not in keep]
     due = [by[k] for k, v in keep.items() if v["leaves"] <= now]
-    add = [dict(x, leaves=now + WAIT, why=BEYOND if x.get("beyond") else "60 days unwatched") for x in items
-           if x["key"] not in keep and ok(x) and (x.get("beyond") or x["added"] <= now - GRACE)]
+    add = [dict(x, leaves=now + WAIT, why="60 days unwatched") for x in items
+           if x["key"] not in keep and ok(x) and x["added"] <= now - GRACE]
     leaving = sum(by[k]["size"] for k in keep) + sum(x["size"] for x in add)
     over = used - leaving - DISK_LIMIT * total
     budget = DISK_WEEK_BUDGET - sum(v.get("size", by[k]["size"]) for k, v in keep.items()
-                                    if v["why"] == "drive over 85%" and v["listed"] > now - WAIT)
+                                    if v["why"].startswith("drive over") and v["listed"] > now - WAIT)
     if over > 0:  # the drive is too full: the oldest unwatched (30+ days) go on the list too
         taken = {x["key"] for x in add}
         for x in sorted((x for x in items if x["key"] not in keep and x["key"] not in taken and ok(x)
@@ -64,32 +65,17 @@ def plan(items, listed, total, used, now):
                 break
             if x["size"] > budget:
                 continue
-            add.append(dict(x, leaves=now + WAIT, why="drive over 85%"))
+            add.append(dict(x, leaves=now + WAIT, why=DISK_WHY))
             over -= x["size"]; budget -= x["size"]
     return {"add": add, "drop": drop, "due": due}
 
 
-def finish(items, played_seasons):
-    """Protect what can't be checked: anything not matched in Jellyfin (no warning there, watch state unknown), and
-    every season of a show whose watched season numbers don't exist in Sonarr (anime is often numbered differently)."""
-    have = {}
+def finish(items):
+    """Protect what can't be checked: anything not matched in Jellyfin (no warning there, watch state unknown)."""
     for x in items:
-        if x["kind"] == "season":
-            have.setdefault(x["tvdb"], set()).add(x["season"])
-    odd = {tv for tv, n in played_seasons if tv in have and n not in have[tv]}
-    for x in items:
-        if x["protected"]:
-            continue
-        if x["kind"] == "season" and x["tvdb"] in odd:
-            x["protected"] = "season numbers differ from Jellyfin"
-        elif not x.get("jf"):
+        if not x["protected"] and not x.get("jf"):
             x["protected"] = "not matched in Jellyfin"
     return items
-
-
-def furthest(tv, played_seasons):
-    """The furthest season anyone has started (1 if nobody has)."""
-    return max([n for t, n in played_seasons if t == tv and n > 0] or [1])
 
 
 class LooksWrong(Exception):
@@ -126,18 +112,14 @@ def still_used(files, recycle):
     return False
 
 
-def seasons_of(series, files):
-    """One item per season that has files: the newest episode decides when it was added."""
-    out = {}
-    for f in files:
-        n = f["seasonNumber"]
-        s = out.setdefault(n, {"key": f"season:{series['id']}:{n}", "kind": "season", "series_id": series["id"], "season": n,
-                               "tvdb": series.get("tvdbId"), "title": f"{series['title']} – Season {n}", "added": 0, "size": 0,
-                               "file_ids": [], "tags": series.get("tags", [])})
-        s["added"] = max(s["added"], ts(f["dateAdded"]))
-        s["size"] += f.get("size", 0)
-        s["file_ids"].append(f["id"])
-    return [out[n] for n in sorted(out)]
+def show_of(series, files):
+    """The whole show as one item (None with no files): the newest episode decides when it was added, so a new
+    season or episode restarts its clock."""
+    if not files:
+        return None
+    return {"key": f"show:{series['id']}", "kind": "show", "series_id": series["id"], "tvdb": series.get("tvdbId"),
+            "title": series["title"], "added": max(ts(f["dateAdded"]) for f in files), "size": sum(f.get("size", 0) for f in files),
+            "file_ids": [f["id"] for f in files], "tags": series.get("tags", [])}
 
 
 # --- pantera ---
@@ -192,6 +174,7 @@ class Pantera:
             for it in items:
                 if it["Type"] == "Series" and it.get("ProviderIds", {}).get("Tvdb"):
                     series_tvdb[it["Id"]] = int(it["ProviderIds"]["Tvdb"])
+                    jf_ids[("show", int(it["ProviderIds"]["Tvdb"]))] = it["Id"]
             for it in items:
                 ud = it.get("UserData") or {}
                 played = ud.get("Played") or ud.get("PlayCount", 0) > 0 or ud.get("PlaybackPositionTicks", 0) > 0
@@ -241,16 +224,16 @@ class Pantera:
                         "favorite": m.get("tmdbId") in fav_m or "favourite" in tags, "protected": prot})
         for s in self.sonarr("/series"):
             tags = {stags.get(t) for t in s.get("tags", [])}
-            files = self.sonarr(f"/episodefile?seriesId={s['id']}")
-            for x in seasons_of(s, files):
-                tv, n = s.get("tvdbId"), x["season"]
-                prot = ("tagged " + ", ".join(sorted(tags & KEEP_TAGS))) if tags & KEEP_TAGS else \
-                    "still downloading" if s["id"] in queued_series else \
-                    "requested in Seerr" if (tv and tv in asked["tv"]) or (s.get("tmdbId") and s["tmdbId"] in asked["tv_tmdb"]) else None
-                out.append(dict(x, jf=jf_ids.get(("season", tv, n)), played=(tv, n) in played_s,
-                                beyond=n > furthest(tv, played_s) + 1,
-                                favorite=tv in fav_shows or (tv, n) in fav_s or "favourite" in tags, protected=prot))
-        return finish(out, played_s)
+            x = show_of(s, self.sonarr(f"/episodefile?seriesId={s['id']}"))
+            if not x:
+                continue
+            tv = s.get("tvdbId")
+            prot = ("tagged " + ", ".join(sorted(tags & KEEP_TAGS))) if tags & KEEP_TAGS else \
+                "still downloading" if s["id"] in queued_series else \
+                "requested in Seerr" if (tv and tv in asked["tv"]) or (s.get("tmdbId") and s["tmdbId"] in asked["tv_tmdb"]) else None
+            out.append(dict(x, jf=jf_ids.get(("show", tv)), played=any(t == tv for t, _ in played_s),
+                            favorite=tv in fav_shows or any(t == tv for t, _ in fav_s) or "favourite" in tags, protected=prot))
+        return finish(out)
 
     # --- the Jellyfin collection ---
     def collection(self, jf_ids):
@@ -272,20 +255,15 @@ class Pantera:
     # --- leaving ---
     def torrent_hashes(self, x):
         rows = self.radarr(f"/history/movie?movieId={x['id']}") if x["kind"] == "movie" else \
-            self.sonarr(f"/history/series?seriesId={x['series_id']}&seasonNumber={x['season']}")
+            self.sonarr(f"/history/series?seriesId={x['series_id']}")
         return {r["downloadId"].lower() for r in rows if r.get("downloadId")}
 
     def delete(self, x):
         hashes = self.torrent_hashes(x)  # before the history goes with the movie
         if x["kind"] == "movie":
             self.radarr(f"/movie/{x['id']}?deleteFiles=true&addImportExclusion=true", method="DELETE")
-        else:  # unmonitor first, so a failure can't leave a monitored season with no files (Sonarr would re-grab it)
-            s = self.sonarr(f"/series/{x['series_id']}")
-            for season in s["seasons"]:
-                if season["seasonNumber"] == x["season"]:
-                    season["monitored"] = False
-            self.sonarr(f"/series/{x['series_id']}", method="PUT", body=s)
-            self.sonarr("/episodefile/bulk", method="DELETE", body={"episodeFileIds": x["file_ids"]})
+        else:  # the whole show, kept off import lists so it doesn't come straight back
+            self.sonarr(f"/series/{x['series_id']}?deleteFiles=true&addImportListExclusion=true", method="DELETE")
         freed = 0
         try:  # it has left the library either way; a torrent that can't be checked stays (the seeding limit removes it later)
             recycle = recycle_links(RECYCLE)
@@ -373,7 +351,7 @@ if __name__ == "__main__":
         for x in items:
             k = "played" if x["played"] else "favorite" if x["favorite"] else x["protected"] or ("old enough" if x["added"] <= now - GRACE else "too new")
             kinds[k] = kinds.get(k, 0) + 1
-        print(f"{len(items)} items ({sum(x['kind'] == 'movie' for x in items)} movies, {sum(x['kind'] == 'season' for x in items)} seasons); drive {du.used / du.total:.1%}")
+        print(f"{len(items)} items ({sum(x['kind'] == 'movie' for x in items)} movies, {sum(x['kind'] == 'show' for x in items)} shows); drive {du.used / du.total:.1%}")
         print("  ", dict(sorted(kinds.items(), key=lambda kv: -kv[1])))
         print(f"   in Jellyfin: {sum(1 for x in items if x['jf'])} of {len(items)} matched")
         for label, used in (("now", du.used), ("if the drive were 90% full", 0.90 * du.total)):
