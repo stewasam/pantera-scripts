@@ -24,6 +24,7 @@ import json
 import re
 import sys
 import time
+from datetime import datetime
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -155,12 +156,23 @@ def stalled(app, record, state, now):
     key = f"progress:{app}:{record.get('downloadId') or record['id']}"
     left = record.get("sizeleft", 0)
     seen = state.get(key)
-    if record.get("status") in ("completed",) or left == 0:
+    # size 0 = the torrent never got its file list (no one sharing it): 0 left does NOT mean finished (11-08: 32 sat
+    # like that for weeks, counted as "downloading"). It's stuck since it was added.
+    no_meta = not record.get("size") and record.get("status") != "completed"
+    if record.get("status") in ("completed",) or (left == 0 and not no_meta):
         state.pop(key, None)
         return None
     if not seen or seen["left"] != left:
-        state[key] = {"left": left, "since": now}
-        return None
+        since = now
+        if no_meta and record.get("added"):
+            try:
+                since = min(now, datetime.fromisoformat(record["added"].replace("Z", "+00:00")).timestamp())
+            except ValueError:
+                pass
+        state[key] = {"left": left, "since": since}
+        if now - since < STALL_HOURS * 3600:
+            return None
+        seen = state[key]
     hours = (now - seen["since"]) / 3600
     if hours < STALL_HOURS:
         return None
